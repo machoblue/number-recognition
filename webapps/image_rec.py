@@ -2,7 +2,7 @@
 import sys,os
 sys.path.append(os.pardir)
 import numpy as np
-from use_neuralnet import predict
+from ch05.use_neuralnet import predict
 
 from PIL import Image
 from PIL import ImageOps

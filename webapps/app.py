@@ -11,7 +11,7 @@ import base64
 import re
 
 # config - upload images filepath
-UPLOAD_FOLDER = './uploads'
+UPLOAD_FOLDER = '/uploads'
 
 app = Flask(__name__)
 app.image_rec = ImageRec()
@@ -53,11 +53,6 @@ def get():
 def uploaded_file(filename):
     return send_from_directory(UPLOAD_FOLDER, filename)
 
-@app.route('/materialize.css')
-def style():
-    print('aaa')
-    return send_from_directory('./', 'materialize.css')
-  
 # main http server
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 80))
