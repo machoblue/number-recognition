@@ -11,8 +11,14 @@ from PIL import Image
 
 network = TwoLayerNet(input_size=784, hidden_size=50, output_size=10)
 
-with open('../ch05/params.pickle', mode='rb') as f:
-  network.refresh(pickle.load(f))
+
+filedir = os.path.dirname(os.path.realpath(__file__))
+with open(os.path.join(filedir, 'params.pickle'), mode='rb') as f:
+  if (f) {
+    network.refresh(pickle.load(f))
+  } else {
+    print('%s does not exist' % 'params.pickle')
+  }
   
 def predict(image):
   return softmax(network.predict(image))

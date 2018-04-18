@@ -11,7 +11,7 @@ import base64
 import re
 
 # config - upload images filepath
-UPLOAD_FOLDER = '/uploads'
+UPLOAD_FOLDER = '/uploads' # /uploadsでないと、アップロードは出来ても、クライアントからGETできない。
 
 app = Flask(__name__)
 app.image_rec = ImageRec()
