@@ -22,16 +22,16 @@ $ sudo -i
 次に必要なパッケージをインストールします。
 
 ```
-'# apt-get update
-'# apt-get install -y python3-pip git
+\# apt-get update
+\# apt-get install -y python3-pip git
 ```
 
 GitHubからアプリを取得します。そして、必要なpythonのパッケージをインストールします。
 
 ```
-'# git clone https://github.com/machoblue/number-recognition
-'# cd number-recognition
-'# pip3 install -r requirements.txt
+\# git clone https://github.com/machoblue/number-recognition
+\# cd number-recognition
+\# pip3 install -r requirements.txt
 ```
 
 ### 学習
@@ -39,7 +39,7 @@ GitHubからアプリを取得します。そして、必要なpythonのパッ�
 以下を実行し、学習します。
 
 ```
-'# python3 ch05/train_neuralnet.py
+\# python3 ch05/train_neuralnet.py
 ```
 
 ### 推論
@@ -47,15 +47,15 @@ GitHubからアプリを取得します。そして、必要なpythonのパッ�
 以下を実行し、アプリを起動します。
 
 ```
-'# cp -a webapps /opt/
-'# mkdir /uploads
+\# cp -a webapps /opt/
+\# mkdir /uploads
 
-'# cp numberrec.service /etc/systemd/system/
+\# cp numberrec.service /etc/systemd/system/
 
-'# systemctl daomon-reload
-'# systemctl enable numberrec
-'# systemctl start numberrec
-'# systemctl status numberrec
+\# systemctl daomon-reload
+\# systemctl enable numberrec
+\# systemctl start numberrec
+\# systemctl status numberrec
 ```
 
 以上です。
