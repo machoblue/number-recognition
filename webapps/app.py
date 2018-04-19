@@ -11,7 +11,10 @@ import base64
 import re
 
 # config - upload images filepath
-UPLOAD_FOLDER = '/uploads' # /uploadsでないと、アップロードは出来ても、クライアントからGETできない。
+# UPLOAD_FOLDER = '/uploads' # /uploadsでないと、アップロードは出来ても、クライアントからGETできない。
+UPLOAD_DIRECTORY = os.path.join(tempfile.gettempdir(), 'uploads')
+if not os.path.exists(UPLOAD_DIRECTORY):
+    os.mkdir(UPLOAD_DIRECTORY)
 
 app = Flask(__name__)
 app.image_rec = ImageRec()
