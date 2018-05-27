@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # This Application is used to classtify images using Tensorflow (InceptionV3) and build on Flask Framework.
-import os, uuid
+import os, uuid, tempfile
 from flask import Flask, render_template, request, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 from image_rec import ImageRec 
@@ -12,9 +12,9 @@ import re
 
 # config - upload images filepath
 # UPLOAD_FOLDER = '/uploads' # /uploadsでないと、アップロードは出来ても、クライアントからGETできない。
-UPLOAD_DIRECTORY = os.path.join(tempfile.gettempdir(), 'uploads')
-if not os.path.exists(UPLOAD_DIRECTORY):
-    os.mkdir(UPLOAD_DIRECTORY)
+UPLOAD_FOLDER = os.path.join(tempfile.gettempdir(), 'uploads')
+if not os.path.exists(UPLOAD_FOLDER):
+    os.mkdir(UPLOAD_FOLDER)
 
 app = Flask(__name__)
 app.image_rec = ImageRec()
@@ -52,7 +52,7 @@ def get():
     return render_template('index.html')
             
 # routing imagefile
-@app.route('/uploads/<filename>')
+@app.route('/tmp/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(UPLOAD_FOLDER, filename)
 

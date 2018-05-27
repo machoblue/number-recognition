@@ -15,7 +15,7 @@ network = TwoLayerNet(input_size=784, hidden_size=50, output_size=10)
 filedir = os.path.dirname(os.path.realpath(__file__))
 try :
   with open(os.path.join(filedir, 'params.pickle'), mode='rb') as f:
-  network.refresh(pickle.load(f))
+    network.refresh(pickle.load(f))
 except :
   print('%s does not exist.' % 'params.pickle')
   
